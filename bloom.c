@@ -75,13 +75,13 @@ int main(int argc, char** argv)
 void set_bit(bloom_filter_t *B, index_t i)
 {
   index_t j = 1;
-  (B->table[(int)(i/64)])=B->table[(int)(i/64)]|(j<<(i-(int)(i/64)*64));
+  (B->table[i/64])=B->table[i/64]|(j<<(i%64));
 }
 
 index_t get_bit(bloom_filter_t *B, index_t i)
 {
   index_t j = 1;
-  return (B->table[(int)(i/64)]&(j<<(i-(int)(i/64)*64)))>>(i-(int)(i/64)*64);
+  return (B->table[i/64]&(j<<(i%64)))>>(i%64);
 }
 
 index_t hash1(bloom_filter_t *B, key_t k)

@@ -95,7 +95,12 @@ index_t hash2(bloom_filter_t *B, key_t k)
 
 void bloom_init(bloom_filter_t *B, index_t size_in_bits)
 {
+  int i;
   B->table = (index_t *) malloc(((int)ceil(size_in_bits/64.))*sizeof(index_t));
+  for(i=0;i<size_in_bits/64+1;i++)
+    {
+      B->table[i] =0;
+    }
   B->size = size_in_bits;
   B->count = 0;
 }
