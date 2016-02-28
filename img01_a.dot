@@ -1,8 +1,0 @@
-
-    digraph G {
-    nodesep=0.3;
-    ranksep=0.2;
-    margin=0.1;
-    node [shape=circle];
-    edge [arrowsize=0.8];
-    1[label="1000000005.9352583"]}
